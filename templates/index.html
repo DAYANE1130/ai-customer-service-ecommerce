@@ -46,27 +46,7 @@
         <div class="relative group mb-16">
             <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-2xl blur opacity-25"></div>
 
-            <form method="POST" action="/" class="relative flex items-center bg-white rounded-2xl shadow-xl overflow-hidden">
 
-                <div class="pl-6 text-slate-400">
-                    🔎
-                </div>
-
-                <input 
-                    type="text"
-                    name="question"
-                    placeholder="Ex: Onde está meu pedido?"
-                    class="w-full py-6 px-6 text-lg outline-none text-slate-700 placeholder-slate-400"
-                    required
-                >
-
-                <button 
-                    type="submit"
-                    class="mr-4 bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-700 transition shadow-lg">
-                    Perguntar
-                </button>
-
-            </form>
         </div>
 
         <!-- CATEGORIAS -->
@@ -80,8 +60,8 @@
         <!-- RECOMENDAÇÕES -->
          <div class="flex items-start gap-8 mt-12 px-6">
     <div class="w-1/4">
-        <h2 class="text-3xl font-bold text-slate-800 leading-tight">
-            Mais vendidos <br> <span class="text-indigo-600">em destaque</span>
+        <h2 class="text-3xl font-bold text-slate-600 leading-tight">
+            Você pode gostar:
         </h2>
     </div>
 
@@ -115,7 +95,28 @@
 
                 <div>
                     <h4 class="font-bold text-slate-900">Assistente Virtual</h4>
-                    <p class="text-sm text-slate-500">Resposta</p>
+                    
+            <form method="POST" class="relative flex items-center bg-white rounded-2xl shadow-xl overflow-hidden">
+
+                <div class="pl-6 text-slate-400">
+                    🔎
+                </div>
+         <!-- PERGUNTA -->
+                <input 
+                    type="text"
+                    name="question"
+                    placeholder="Ex: Onde está meu pedido?"
+                    class="w-full py-6 px-6 text-lg outline-none text-slate-700 placeholder-slate-400"
+                    required
+                >
+
+                <button 
+                    type="submit"
+                    class="mr-4 bg-indigo-600 text-white px-14 py-3 rounded-xl font-bold hover:bg-indigo-700 transition shadow-lg">
+                    Perguntar
+                </button>
+
+            </form>
                 </div>
             </div>
 
