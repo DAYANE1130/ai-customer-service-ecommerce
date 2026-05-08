@@ -1,6 +1,6 @@
 # Intelligent E-commerce
 
-Projeto de estudo com Flask + IA (Langflow)
+Projeto  Flask + IA (Langflow)
 
 ## Como rodar
 
