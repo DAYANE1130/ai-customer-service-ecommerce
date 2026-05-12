@@ -1,6 +1,9 @@
-# Intelligent E-commerce
+# Intelligent E-commerce - em andamento
 
 Projeto  Flask + IA (Langflow)
+
+Refatoração na branch https://github.com/DAYANE1130/ai-customer-service-ecommerce.git
+
 
 ## Como rodar
 
