@@ -3,7 +3,7 @@
 Projeto de estudo com Flask + IA (Langflow)
 
 <p align="center">
-  <img src="./static/fluxo_langflow" alt="Fluxo Langflow" width="700"/>
+  <img src="static/fluxo_langflow" alt="Fluxo Langflow" width="700"/>
 </p>
 
 
