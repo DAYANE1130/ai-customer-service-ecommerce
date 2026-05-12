@@ -2,7 +2,7 @@
 
 Projeto  Flask + IA (Langflow)
 
-Refatoração na branch https://github.com/DAYANE1130/ai-customer-service-ecommerce.git
+Refatoração na branch https://github.com/DAYANE1130/ai-customer-service-ecommerce/tree/refactor/architecture
 
 
 ## Como rodar
