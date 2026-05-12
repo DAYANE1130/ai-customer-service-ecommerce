@@ -1,6 +1,7 @@
 import uuid
 import os
 import requests
+import json
 from dotenv import load_dotenv
 
 
@@ -44,5 +45,17 @@ def call_langflow(question: str, user_info, product_list):
     response.raise_for_status()
 
     data = response.json()
+    
+    text = data["outputs"][0]["outputs"][0]["results"]["message"]["text"]
+    
+    return json.loads(text)
 
-    return data
+# Testando formato de resposta
+# response = {'chat_answer': 'Aceitamos diversas formas de pagamento, como Cartão de crédito, Pix e Boleto bancário. Para produtos de beleza, posso recomendar:', 
+#  'recommendations': [{'title': 'Powder Canister', 'price': 14.99, 'rating': 5}, {'title': 'Red Lipstick', 'price': 12.99, 'rating': 4}, {'title': 'Red Nail Polish', 'price': 8.99, 'rating': 4}], 
+#  'action_required': 'none', 'email_body': None}
+
+# print(response['chat_answer'])
+
+# for p in response["recommendations"]:
+#     print(p['title'])
