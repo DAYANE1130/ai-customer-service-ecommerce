@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from services.langflow_services import call_langflow
-from services.product_services import call_api_products
+from services.product_services import get_products_for_ai
 from database.customers import user_database
 from services.email_services import send_email
 
@@ -15,7 +15,7 @@ def home(id_client):
     # Dados iniciais
     answer = f'Olá, {user["nome"]} Como posso ajudar você hoje?'
     recommended_products = []
-    products = call_api_products()
+    products = get_products_for_ai()
 
     try:
         # Fluxo do usuário envia pergunta sobre faq,recomendação ou pedidos:
