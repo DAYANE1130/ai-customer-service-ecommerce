@@ -2,8 +2,7 @@ from flask import Flask, render_template, request
 from services.langflow_services import call_langflow
 from services.product_services import call_api_products
 from database.customers import user_database
-
-
+from services.email_services import send_email
 
 
 app = Flask(__name__)
@@ -14,12 +13,12 @@ def home(id_client):
     user = user_database[str(id_client)]
 
     # Dados iniciais
-    answer = "Olá, Dayane! Como posso ajudar você hoje?"
+    answer = f'Olá, {user["nome"]} Como posso ajudar você hoje?'
     recommended_products = []
     products = call_api_products()
 
     try:
-        # Fluxo do usuário envia pergunta sobre faq ou pedidos:
+        # Fluxo do usuário envia pergunta sobre faq,recomendação ou pedidos:
         if request.method == "POST":
             question = request.form.get("question")
 
@@ -28,15 +27,16 @@ def home(id_client):
                 answer = response["chat_answer"]
                 recommended_products = response["recommendations"]
 
-        # Fluxo que apenas exibe recomendações:
-        # else:
-        #     response = call_langflow('', user, products)
-        #     print(response)
+                if response['action_required'] == "send_email":
+                    send_email(
+                        to_email=user["email"],
+                        subject="Informações sobre pedido XXX",
+                        body=response['email_body']
+                    )
 
     except Exception as e:
         print(f"Erro: {e}")
-        answer = "Olá! Como posso ajudar?"
-        #produtos_recomendados = products[:3]
+        answer = "Desculpe, ocorreu um erro ao processar sua solicitação. Tente novamente em instantes."
 
     return render_template('index.html', answer=answer, user=user, products_list=recommended_products)
 

@@ -1,8 +1,13 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 user_database = {
     "8": {
         "id": 8,
         "nome": "Dayane",
-        "email": "dayane@exemplo.com",
+        "email": os.environ.get("EMAIL"),
         "perfil_comportamental": "Interesse em cuidados pessoais premium, decoração de interiores e fragrâncias exclusivas.",
         "categorias_favoritas": ["beauty", "fragrances", "furniture"],
         # Simulando compras reais com IDs e dados da API DummyJSON
