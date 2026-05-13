@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
-        .gradient-bg { background: radial-gradient(circle at top right, #f0f9ff 0%, #e0e7ff 100%); }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+        }
+
+        .gradient-bg {
+            background: radial-gradient(circle at top right, #f0f9ff 0%, #e0e7ff 100%);
+        }
     </style>
 
     <title>Suporte Inteligente | E-commerce</title>
@@ -20,7 +32,8 @@
     <!-- NAV -->
     <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto">
         <div class="flex items-center gap-2">
-            <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold">S</div>
+            <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold">S
+            </div>
             <span class="font-bold text-xl tracking-tight">SmartSupport</span>
         </div>
 
@@ -38,13 +51,16 @@
                 Como podemos ajudar?
             </h1>
             <p class="text-slate-600 text-lg">
-                Digite sua dúvida e nossa IA responderá.
-            </p>
+                Tire dúvidas sobre seus pedidos, acompanhe entregas,
+                receba recomendações personalizadas e obtenha informações das suas compras
+                diretamente no seu e-mail.
+
         </div>
 
         <!-- FORM (INPUT + SUBMIT) -->
         <div class="relative group mb-16">
-            <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-2xl blur opacity-25"></div>
+            <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-2xl blur opacity-25">
+            </div>
 
 
         </div>
@@ -57,8 +73,53 @@
             <div class="bg-white p-6 rounded-2xl shadow-sm border text-center">👤 Conta</div>
         </div>
 
+        <!-- RECOMENDAÇÕES
+        <div class="flex items-start gap-8 mt-12 px-6">
+            {% if products_list %}
+            <div class="w-1/4">
+                <h2 class="text-3xl font-bold text-slate-600 leading-tight">
+                    Você pode gostar:
+                </h2>
+            </div>
+            <div class="flex-1 grid grid-cols-3 gap-6">
+                {% for p in products_list %}
+                <div class="bg-white p-6 rounded-3xl shadow-xl border border-slate-100 flex flex-col min-h-[260px]">
+
+                    <div>
+                        <h3 class="font-bold text-slate-700 text-lg mb-2 line-clamp-2 min-h-[56px]">
+                            {{ p.title }}
+                        </h3>
+
+                        <div class="text-yellow-400 mb-4">
+                            {% for i in range(p.rating) %}
+                            ★
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between mt-auto pt-6 gap-4">
+
+                        <span class="text-2xl font-black text-slate-900">
+                            ${{ p.price }}
+                        </span>
+
+                        <button
+                            class="bg-indigo-600 text-white px-4 py-2 rounded-xl font-bold hover:bg-indigo-700 transition">
+                            Comprar
+                        </button>
+
+                    </div>
+
+                </div>
+                {% endfor %}
+
+            </div>
+            {% endif %}
+        </div> -->
         <!-- RECOMENDAÇÕES -->
-         <div class="flex items-start gap-8 mt-12 px-6">
+<div class="flex items-start gap-8 mt-12 px-6">
+    {% if products_list %}
+
     <div class="w-1/4">
         <h2 class="text-3xl font-bold text-slate-600 leading-tight">
             Você pode gostar:
@@ -66,23 +127,39 @@
     </div>
 
     <div class="flex-1 grid grid-cols-3 gap-6">
+
         {% for p in products_list %}
-        <div class="bg-white p-6 rounded-3xl shadow-xl border border-slate-100 flex flex-col justify-between">
-            <div>
-                <h3 class="font-bold text-slate-700 text-lg mb-2">{{ p.title }}</h3>
-                <div class="text-yellow-400 mb-4">
-                    {% for i in range(p.rating) %}★{% endfor %}
-                </div>
+        <div class="bg-white p-6 rounded-3xl shadow-xl border border-slate-100 flex flex-col min-h-[320px]">
+
+            <!-- NOME -->
+            <h3 class="font-bold text-slate-700 text-lg mb-3 line-clamp-2 min-h-[56px]">
+                {{ p.title }}
+            </h3>
+
+            <!-- ESTRELAS -->
+            <div class="text-yellow-400 mb-4">
+                {% for i in range(p.rating) %}
+                ★
+                {% endfor %}
             </div>
-            <div class="flex items-center justify-between mt-4">
-                <span class="text-2xl font-black text-slate-900">${{ p.price }}</span>
-                <button class="bg-indigo-600 text-white px-4 py-2 rounded-xl font-bold hover:bg-indigo-700 transition">
-                    Comprar
-                </button>
-            </div>
+
+            <!-- PREÇO -->
+            <span class="text-2xl font-black text-slate-900 mb-6">
+                ${{ p.price }}
+            </span>
+
+            <!-- BOTÃO -->
+            <button
+                class="mt-auto w-full bg-indigo-600 text-white px-4 py-3 rounded-xl font-bold hover:bg-indigo-700 transition">
+                Comprar
+            </button>
+
         </div>
         {% endfor %}
+
     </div>
+
+    {% endif %}
 </div>
 
         <!-- RESPOSTA -->
@@ -95,41 +172,36 @@
 
                 <div>
                     <h4 class="font-bold text-slate-900">Assistente Virtual</h4>
-                    
-            <form method="POST" class="relative flex items-center bg-white rounded-2xl shadow-xl overflow-hidden">
 
-                <div class="pl-6 text-slate-400">
-                    🔎
-                </div>
-         <!-- PERGUNTA -->
-                <input 
-                    type="text"
-                    name="question"
-                    placeholder="Ex: Onde está meu pedido?"
-                    class="w-full py-6 px-6 text-lg outline-none text-slate-700 placeholder-slate-400"
-                    required
-                >
+                    <form method="POST"
+                        class="relative flex items-center bg-white rounded-2xl shadow-xl overflow-hidden">
 
-                <button 
-                    type="submit"
-                    class="mr-4 bg-indigo-600 text-white px-14 py-3 rounded-xl font-bold hover:bg-indigo-700 transition shadow-lg">
-                    Perguntar
-                </button>
+                        <div class="pl-6 text-slate-400">
+                            🔎
+                        </div>
+                        <!-- PERGUNTA -->
+                        <input type="text" name="question" placeholder="Ex: Onde está meu pedido?"
+                            class="w-full py-6 px-6 text-lg outline-none text-slate-700 placeholder-slate-400" required>
 
-            </form>
+                        <button type="submit"
+                            class="mr-4 bg-indigo-600 text-white px-14 py-3 rounded-xl font-bold hover:bg-indigo-700 transition shadow-lg">
+                            Perguntar
+                        </button>
+
+                    </form>
                 </div>
             </div>
 
             <div class="space-y-4 text-slate-700 leading-relaxed">
 
                 {% if answer %}
-                    <p class="bg-slate-50 p-4 rounded-2xl inline-block">
-                        {{ answer }}
-                    </p>
+                <p class="bg-slate-50 p-4 rounded-2xl inline-block">
+                    {{ answer }}
+                </p>
                 {% else %}
-                    <p class="bg-slate-50 p-4 rounded-2xl inline-block">
-                        Olá! Digite sua pergunta acima 👆
-                    </p>
+                <p class="bg-slate-50 p-4 rounded-2xl inline-block">
+                    Olá! Digite sua pergunta acima 👆
+                </p>
                 {% endif %}
 
             </div>
@@ -139,4 +211,5 @@
     </main>
 
 </body>
+
 </html>
