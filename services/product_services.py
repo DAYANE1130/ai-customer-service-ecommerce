@@ -1,10 +1,12 @@
 import requests
 
-def call_api_products():
+
+# Listagem limitada de produtos com apenas as informações necessárias para o agente:
+
+def call_api_products(): 
     try:
         api_res = requests.get("https://dummyjson.com/products?limit=20").json()
 
-        # print(api_res)
         all_products = []
 
         for product in api_res['products']:
