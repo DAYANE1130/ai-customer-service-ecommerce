@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 LANGFLOW_URL = os.environ.get("LANGFLOW_URL")
-API_KEY = os.environ.get("LANGFLOW_API_KEY")
+API_KEY = os.environ.get("DOCKER_LANGFLOW_API_KEY")
 
 
 def get_headers():
@@ -23,7 +23,7 @@ def build_payload(question, user_info, product_list):
         "output_type": "chat",
         "input_value": question,
         "tweaks": {
-            "Prompt-AyzZR": {
+            "Prompt-Xd7aZ": {
                 "question": question,
                 "user_info": str(user_info),
                 "product_list": str(product_list)
@@ -40,10 +40,13 @@ def call_langflow(question: str, user_info, product_list):
     headers = get_headers()
     
     response = requests.post(LANGFLOW_URL, json=payload, headers=headers)
+    print("erro service langflow",response.status_code)
+    print("erro service langflow",response.text)
     
     response.raise_for_status()
 
     data = response.json()
+
     
     text = data["outputs"][0]["outputs"][0]["results"]["message"]["text"]
     

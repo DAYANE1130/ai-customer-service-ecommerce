@@ -25,4 +25,5 @@ def home(id_client):
     return render_template('index.html', answer=answer, user=user, products_list=recommended_products)
 
 
-app.run(debug=True)
+# app.run(debug=True)
+app.run(host="0.0.0.0", port=5000, debug=True)

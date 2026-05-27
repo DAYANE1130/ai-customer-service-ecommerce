@@ -4,7 +4,6 @@ from services.email_services import send_email
 
 
 def process_user_message(question, user):
-
     products = get_products_for_ai()
     recommended_products = []
 
@@ -22,7 +21,7 @@ def process_user_message(question, user):
             )
 
     except Exception as e:
-        print(f"Erro: {e}")
+        print(f"Erro DO CONTROLLER: {e}") #Degug de container flask
         answer = "Desculpe, ocorreu um erro ao processar sua solicitação. Tente novamente em instantes."
 
     return answer, recommended_products
