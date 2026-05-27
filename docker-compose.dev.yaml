@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  flask:
+    build: .
+    restart: always
+    
+    environment:
+      PYTHONUNBUFFERED: "1"
+      DOCKER_LANGFLOW_API_KEY: ${DOCKER_LANGFLOW_API_KEY}
+      LANGFLOW_URL: ${LANGFLOW_URL}
+      EMAIL: ${EMAIL}
+      APP_PASSWORD: ${APP_PASSWORD}
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - langflow
+
+
+
+  langflow:
+    image: langflowai/langflow:1.7.2 # Evitando o 'latest' para estabilidade
+    restart: always
+    environment:
+      DOCKER_LANGFLOW_API_KEY: ${DOCKER_LANGFLOW_API_KEY}
+    ports:
+      - "7861:7860"
+    volumes:
+      - ./langflow_data:/app/data
+ 
