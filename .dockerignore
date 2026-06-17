@@ -5,3 +5,14 @@ __pycache__
 venv
 __pycache__
 .venv
+
+
+langflow_data/.cache/langflow/profile_pictures
+langflow_data/.cache/langflow/secret_key
+**/secret_key
+.env
+
+# Runtime
+langflow_data/.mem0/
+langflow_data/.composio
+
