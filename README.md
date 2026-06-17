@@ -25,12 +25,11 @@ https://github.com/user-attachments/assets/159e9a24-28cd-4594-a95c-5a7d6bd59c9c
 
 Construir um sistema capaz de automatizar partes do atendimento ao cliente em ecommerce através de IA, permitindo:
 
-- Responder dúvidas frequentes automaticamente
-- Recomendar produtos
-- Consultar informações de pedidos
-- Enviar emails automáticos ao cliente
-- Identificar intenções do usuário
-- Executar ações no backend com base na resposta da IA
+-Reduzir o tempo gasto com atendimentos repetitivos
+-Melhorar a experiência do cliente com respostas mais rápidas
+-Automatizar processos operacionais
+-Facilitar a experimentação e comparação entre diferentes modelos de IA
+-Demonstrar uma arquitetura de integração entre IA Generativa e aplicações web
 
 ---
 
