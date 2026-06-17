@@ -1,13 +1,13 @@
 
 # 🤖 AI Customer Support Automation for Ecommerce
 
-Sistema de automação de atendimento ao cliente para ecommerce utilizando IA generativa com Langflow + Gemini integrado a uma aplicação Flask.
+## Sobre o Projeto
 
-O projeto foi desenvolvido como um MVP funcional focado em automação de processos, redução de tempo operacional e melhoria da experiência do cliente.
+Sistema de atendimento inteligente para e-commerce que utiliza IA Generativa para automatizar dúvidas frequentes, recomendações de produtos, consultas de pedidos e envio de emails.
 
-<p align="center">
-  <img src="./static/fluxo_langflow.png" alt="fluxo visual langflow" width="700"/>
-</p>
+O projeto foi desenvolvido como um MVP funcional com foco na redução do tempo operacional, melhoria da experiência do cliente e validação rápida de soluções baseadas em IA utilizando Langflow, Gemini e Flask.
+
+Além da automação do atendimento, a arquitetura permite testar e comparar diferentes modelos de linguagem, facilitando análises de desempenho, qualidade das respostas e custos de operação.
 
 ---
 
@@ -15,7 +15,11 @@ O projeto foi desenvolvido como um MVP funcional focado em automação de proces
 
 https://github.com/user-attachments/assets/159e9a24-28cd-4594-a95c-5a7d6bd59c9c
 
+## Fluxo Langflow
 
+<p align="center">
+  <img src="./static/fluxo_langflow.png" alt="fluxo visual langflow" width="700"/>
+</p>
 
 # 📌 Objetivo do Projeto
 
