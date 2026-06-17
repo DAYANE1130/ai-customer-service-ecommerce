@@ -3,11 +3,24 @@
 
 ## Sobre o Projeto
 
-Sistema de atendimento inteligente para e-commerce que utiliza IA Generativa para automatizar dúvidas frequentes, recomendações de produtos, consultas de pedidos e envio de emails.
+## Sobre o Projeto
 
-O projeto foi desenvolvido como um MVP funcional com foco na redução do tempo operacional, melhoria da experiência do cliente e validação rápida de soluções baseadas em IA utilizando Langflow, Gemini e Flask.
+Este projeto é um MVP de atendimento inteligente para e-commerce desenvolvido para automatizar interações recorrentes com clientes utilizando IA Generativa.
 
-Além da automação do atendimento, a arquitetura permite testar e comparar diferentes modelos de linguagem, facilitando análises de desempenho, qualidade das respostas e custos de operação.
+A solução é capaz de responder dúvidas frequentes, consultar informações de pedidos, recomendar produtos, enviar emails automáticos e executar ações de backend a partir da interpretação das solicitações dos usuários.
+
+Além da automação do atendimento, a arquitetura foi projetada para acelerar a experimentação com diferentes modelos de linguagem através do Langflow. Isso permite avaliar rapidamente desempenho, qualidade das respostas e custos operacionais sem a necessidade de alterar significativamente a aplicação.
+
+### Benefícios
+
+* Redução do tempo gasto com atendimentos repetitivos
+* Melhoria da experiência do cliente com respostas mais rápidas
+* Automatização de processos operacionais
+* Maior escalabilidade do atendimento
+* Facilidade para testar diferentes provedores de IA
+
+O projeto foi desenvolvido utilizando Python, Flask, Langflow e Gemini, com toda a infraestrutura executada via Docker.
+
 
 ---
 
@@ -233,19 +246,7 @@ Permite atender múltiplos usuários simultaneamente.
 
 Entrega respostas rápidas, automatizadas e contextualizadas.
 
----
 
-# 🔮 Possíveis Evoluções Futuras
-
-* Desacoplamento dos IDs internos dos componentes Langflow
-* Configuração dinâmica dos componentes do fluxo
-* Suporte a múltiplos provedores de LLM
-* Comparação de performance entre modelos
-* Comparação de custos entre provedores de IA
-* Integração com banco de dados para persistência de pedidos
-* Painel administrativo para monitoramento das interações
-
----
 
 # ▶️ Como Executar o Projeto
 
@@ -359,6 +360,20 @@ docker-compose
     ├── Integração Gemini
     └── Orquestração das Ações
 ```
+
+---
+
+---
+
+# 🔮 Possíveis Evoluções Futuras
+
+* Desacoplamento dos IDs internos dos componentes Langflow
+* Configuração dinâmica dos componentes do fluxo
+* Suporte a múltiplos provedores de LLM
+* Comparação de performance entre modelos
+* Comparação de custos entre provedores de IA
+* Integração com banco de dados para persistência de pedidos
+* Painel administrativo para monitoramento das interações
 
 ---
 
