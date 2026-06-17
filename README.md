@@ -1,7 +1,6 @@
 
 # 🤖 AI Customer Support Automation for Ecommerce
 
-## Sobre o Projeto
 
 ## Sobre o Projeto
 
@@ -34,17 +33,6 @@ https://github.com/user-attachments/assets/159e9a24-28cd-4594-a95c-5a7d6bd59c9c
   <img src="./static/fluxo_langflow.png" alt="fluxo visual langflow" width="700"/>
 </p>
 
-# 📌 Objetivo do Projeto
-
-Construir um sistema capaz de automatizar partes do atendimento ao cliente em ecommerce através de IA, permitindo:
-
-- Reduzir o tempo gasto com atendimentos repetitivos
-- Melhorar a experiência do cliente com respostas mais rápidas
-- Automatizar processos operacionais
-- Facilitar a experimentação e comparação entre diferentes modelos de IA
-- Demonstrar uma arquitetura de integração entre IA Generativa e aplicações web
-
----
 
 # 🚀 Tecnologias Utilizadas
 
