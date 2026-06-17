@@ -23,7 +23,7 @@ def build_payload(question, user_info, product_list):
         "output_type": "chat",
         "input_value": question,
         "tweaks": {
-            "Prompt-Xd7aZ": {
+            "Prompt-8UhDN": {
                 "question": question,
                 "user_info": str(user_info),
                 "product_list": str(product_list)
