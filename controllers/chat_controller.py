@@ -16,7 +16,7 @@ def process_user_message(question, user):
         if response['action_required'] == "send_email":
             send_email(
                 to_email=user["email"],
-                subject="Informações sobre pedido XXX",
+                subject="Informações de pedido",
                 body=response['email_body']
             )
 
