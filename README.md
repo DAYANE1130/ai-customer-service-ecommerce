@@ -11,6 +11,12 @@ O projeto foi desenvolvido como um MVP funcional focado em automação de proces
 
 ---
 
+## Demonstração
+
+https://github.com/user-attachments/assets/159e9a24-28cd-4594-a95c-5a7d6bd59c9c
+
+
+
 # 📌 Objetivo do Projeto
 
 Construir um sistema capaz de automatizar partes do atendimento ao cliente em ecommerce através de IA, permitindo:
@@ -34,6 +40,7 @@ Construir um sistema capaz de automatizar partes do atendimento ao cliente em ec
 - HTML
 - TailwindCSS
 - Jinja2
+- Docker
 
 ---
 
@@ -227,66 +234,159 @@ Entrega respostas rápidas, automatizadas e contextualizadas.
 
 # 🔮 Possíveis Evoluções Futuras
 
-- Integração com banco de dados real
-- Histórico de conversas
-- Dashboard administrativo
-- Integração com APIs de ecommerce
-- Deploy em cloud
-- Observabilidade e monitoramento
-- Autenticação de usuários
-- Integração com WhatsApp
+* Desacoplamento dos IDs internos dos componentes Langflow
+* Configuração dinâmica dos componentes do fluxo
+* Suporte a múltiplos provedores de LLM
+* Comparação de performance entre modelos
+* Comparação de custos entre provedores de IA
+* Integração com banco de dados para persistência de pedidos
+* Painel administrativo para monitoramento das interações
 
 ---
 
 # ▶️ Como Executar o Projeto
 
-## Clone o repositório
+## Pré-requisitos
+
+Antes de executar o projeto, certifique-se de possuir:
+
+* Docker
+* Docker Compose
+* Conta Google configurada para envio de emails via App Password
+* Chave de API do Langflow
+* Chave de API da IA Generativa escolhida
+
+---
+
+## Configuração das Variáveis de Ambiente
+
+Crie um arquivo `.env` na raiz do projeto utilizando o modelo abaixo ou o arquivo .env.example:
+
+```env
+LANGFLOW_URL=http://langflow:7860/api/v1/run/intelligent_ecommerce
+
+DOCKER_LANGFLOW_API_KEY=your_langflow_api_key
+
+EMAIL=your_email@gmail.com
+APP_PASSWORD=your_gmail_app_password
+```
+
+### Descrição das Variáveis
+
+| Variável                | Descrição                                                             |
+| ----------------------- | --------------------------------------------------------------------- |
+| LANGFLOW_URL            | Endpoint interno utilizado pelo Flask para comunicação com o Langflow |
+| DOCKER_LANGFLOW_API_KEY | Chave utilizada para autenticação no Langflow                         |
+| EMAIL                   | Conta utilizada para envio de emails automáticos                      |
+| APP_PASSWORD            | Senha de aplicativo gerada no Google para SMTP                        |
+
+> **Observação:** O hostname `langflow` funciona porque Flask e Langflow estão executando na mesma rede Docker.
+
+---
+
+## Executando o Projeto
+
+Clone o repositório e entre na pasta do projeto:
 
 ```bash
-git clone <repo_url>
+git clone https://github.com/DAYANE1130/ai-customer-service-ecommerce.git
+```
+
+3. Construa e inicie os containers
+
+```bash
+docker compose -f docker-compose.dev.yaml up -d --build
+```
+
+Esse comando irá:
+
+Construir a imagem da aplicação Flask
+Criar os containers
+Iniciar o Flask e o Langflow
+Configurar a rede entre os serviços
+
+4. Verifique se os containers estão em execução
+   
+```bash
+docker compose -f docker-compose.dev.yaml ps
+```   
+
+
+A aplicação ficará disponível em:
+
+| Serviço  | URL                   |
+| -------- | --------------------- |
+| Flask    | http://localhost:5000 |
+| Langflow | http://localhost:7861 |
+
+---
+
+## Importando o Fluxo no Langflow
+
+Após iniciar os containers:
+
+1. Acesse o Langflow em `http://localhost:7861`
+2. Clique em criar um novo projeto
+   o Fluxo está no no seguinte caminho "flows/fluxo_docker_Intelligent E-commerce Customer Sytem.json" 
+4. Importe o fluxo exportado do projeto
+5. Publique o fluxo
+6. Verifique se o endpoint publicado corresponde ao configurado na variável `LANGFLOW_URL`
+
+Caso o nome do fluxo seja alterado, atualize a variável:
+
+```env
+LANGFLOW_URL=http://langflow:7860/api/v1/run/<nome_do_fluxo>
+```
+
+
+---
+
+## Estrutura dos Containers
+
+```text
+docker-compose
+│
+├── Flask
+│   ├── Interface Web
+│   ├── Integração com Langflow
+│   └── Integração SMTP
+│
+└── Langflow
+    ├── Fluxo Conversacional
+    ├── Integração Gemini
+    └── Orquestração das Ações
 ```
 
 ---
 
-## Crie o ambiente virtual
+## Limitações Conhecidas (MVP)
 
-```bash
-python -m venv venv
+Este projeto foi desenvolvido como um MVP para validação rápida da solução.
+
+Atualmente o payload enviado ao Langflow referencia diretamente o identificador interno de um componente Prompt:
+
+```python
+"Prompt-Xd7aZ"
 ```
 
----
+Ao importar o fluxo para outra instalação do Langflow, esse identificador pode ser recriado automaticamente com outro valor.
 
-## Ative o ambiente virtual
+Caso ocorram erros após a importação do fluxo:
 
-### Linux/macOS
+1. Abra o fluxo no Langflow
+2. Localize o componente Prompt
+3. Verifique o novo identificador gerado
+4. Atualize a referência correspondente no código da aplicação
 
-```bash
-source venv/bin/activate
+Essa dependência será removida em versões futuras para tornar a integração totalmente desacoplada.
+
+
+
+
+
+```
 ```
 
-### Windows
-
-```bash
-venv\Scripts\activate
-```
-
----
-
-## Instale as dependências
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## Execute a aplicação
-
-```bash
-python app.py
-```
-
----
 
 # 💡 Aprendizados do Projeto
 
